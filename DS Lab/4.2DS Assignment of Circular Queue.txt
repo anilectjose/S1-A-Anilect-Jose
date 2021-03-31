@@ -1,0 +1,267 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+int size,cqueue[100],front=-1,rear=-1;
+void enQueue(int data)
+{ 
+ if(front==-1)
+ {
+  front=0;
+  rear=0;
+  cqueue[rear]=data;	
+  }
+  else if(rear==front-1 || (front==0 && rear==size-1))
+  {
+  	printf("\n\nQueue Overflow...!");
+   }	 
+  else if(rear==size-1 && front!=0)
+  {
+   rear=0;	
+   cqueue[rear]=data;
+   }
+   else
+   {
+   	rear++;
+   	cqueue[rear]=data;
+    } 
+ }
+void deQueue()
+{
+ if(front==-1)
+ {
+  printf("\n\nQueue underflow...!");	
+  }
+ else if(rear==front)
+ {
+  printf("%d deleted",cqueue[front]);
+  rear=-1;
+  front=-1;	
+  }
+ else if(front==size-1)
+ {
+ 	 printf("%d deleted",cqueue[front]);
+ 	 front=0;
+  }   
+  else
+  {
+   	 printf("%d deleted",cqueue[front]);
+   	 front++;
+   }	
+ }
+void display()
+{
+ if(front==-1)
+ {
+  printf("\n\nQueue is empty!");
+  return;	
+  }	
+ int i=front;
+ printf("\n\nQueue elements in order:\n");
+ if(i==rear)
+ {printf("%d ",cqueue[i]); return;}
+ while(1)
+ {
+  printf("%d ",cqueue[i]);
+  if(i==rear)
+  return;	
+  if(i==size-1 && i!=rear)
+  {
+   i=0;	
+   }
+  else
+  i++; 
+  } 
+ } 
+void search(int data)
+{
+ int i=front;	
+ if(front==-1)
+ {
+  printf("\nQueue empty...!");
+  return;	
+  } 
+ if(i==rear)
+ {
+  if(data==cqueue[i]) 
+  printf("\n%d found at location %d",data,i+1);
+  else
+  printf("\nSearch failed!");
+  return;}
+ while(1)
+ {
+  if(data==cqueue[i]) 
+  {printf("\n%d found at location %d",data,
+  i+1);
+  return;}	
+  if(i==rear)
+   {printf("\nSearch failed!");
+    return;}	
+  if(i==size-1 && i!=rear)
+  {
+   i=0;	
+   }
+  else
+  i++; 
+  } 	
+ } 
+void main()
+{
+  int ch,data;
+  printf("\nEnter circular queue size: ");
+  scanf("%d",&size);    
+ do
+  {
+  printf("\nEnter choice to perform: ");
+  printf("\n1.Insert\t\t2.Delete\n3.Display\t\t4.Search\t\t5.Exit\n\nChoice: ");	
+  scanf("%d",&ch);	
+  switch(ch)
+  {
+   case 1:printf("\nEnter data: ");
+          scanf("%d",&data);
+          enQueue(data);
+   	      break;
+   case 2:deQueue();
+   	      break;
+   case 3:display();
+   	      break;
+   case 4:printf("\nEnter search item: ");
+          scanf("%d",&data);
+          search(data);
+   	      break;   			 	
+   case 5:exit(0);		       
+   default:printf("\nInvalid Choice");	
+   };} while(ch);  	
+ }
+
+
+
+
+
+
+
+    OUTPUT
+
+>>
+Enter circular queue size: 3
+
+Enter choice to perform: 
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 1
+
+Enter data: 10
+
+Enter choice to perform:        
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 1
+
+Enter data: 20
+
+Enter choice to perform:
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 1
+
+Enter data: 30
+
+Enter choice to perform:
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 3
+
+
+Queue elements in order:
+10 20 30
+Enter choice to perform:
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 1
+
+Enter data: 40
+
+
+Queue Overflow...!
+Enter choice to perform:
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 3
+
+
+Queue elements in order:
+10 20 30
+Enter choice to perform:
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 4
+
+Enter search item: 20
+
+20 found at location 2
+Enter choice to perform:
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 4
+
+Enter search item: 30
+
+30 found at location 3
+Enter choice to perform:
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 4
+
+Enter search item: 50
+
+Search failed!
+Enter choice to perform:
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 3
+
+
+Queue elements in order:
+10 20 30
+Enter choice to perform:
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 2
+10 deleted
+Enter choice to perform:
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 2
+20 deleted
+Enter choice to perform:
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 2
+30 deleted
+Enter choice to perform:
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 2
+
+Queue underflow...!
+
+
+Enter choice to perform:
+1.Insert                2.Delete
+3.Display               4.Search                5.Exit
+
+Choice: 5
+>>
