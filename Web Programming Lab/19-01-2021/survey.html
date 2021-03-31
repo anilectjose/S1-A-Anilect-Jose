@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SURVEY</title>
+    <link href="survey.css" rel="stylesheet">
+    <style>
+
+    div 
+     {
+      border-radius: 5px;
+      background: rgb(255, 255, 255);
+      padding: 20px;
+      margin-left:50px;
+      margin-right:50px;
+     }
+      
+    body
+     {
+      background: #00f1ff;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     }
+    </style>
+</head>
+<body> 
+<header id="header1">
+ <h3>SURVEY FORM</h3>
+</header>
+
+<div>
+  <form action="/action_page.php">
+    <header id="header2">
+        <h3>Let us know how we can improve our Course.</h3>
+      </header>
+    <label for="fname" class="label">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name.."><br>
+
+    <label for="lname" class="label">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name.."><br>
+
+    <label for="country" class="label">Which option best describes your current role</label>
+    <select id="role" name="role">
+      <option value="australia">Select current role</option>
+      <option value="canada">MCA Student</option>
+      <option value="usa">Bsc Student</option>
+      <option value="usa">B-Tech Student</option>
+      <option value="u+sa">Prefer not to say</option>
+      <option value="usa">Other</option>
+    </select><br>
+    
+    <label class="label">Would you recommend </label>
+    <input type="radio" name="reco">Definitely<br>
+    <input type="radio" name="reco" class="marg">Maybe<br>
+    <input type="radio" name="reco" class="marg">Not Sure<br>
+
+    <label for="country" class="label">What would you like to see improved? (Check all that apply)</label>
+
+    <input type="checkbox" name="improved" value="Front-end Projects">Mathmatics<br>
+    <input type="checkbox" name="improved" value="Front-end Projects" class="marg">Digital<br>
+    <input type="checkbox" name="improved" value="Front-end Projects" class="marg">Data Structure<br>
+    <input type="checkbox" name="improved" value="Front-end Projects" class="marg">Software Engineering<br>
+    <input type="checkbox" name="improved" value="Front-end Projects" class="marg">DS Lab<br>
+    <input type="checkbox" name="improved" value="Front-end Projects" class="marg">Web Lab<br>
+    <input type="checkbox" name="improved" value="Front-end Projects" class="marg">Programming lab<br>
+    <input type="checkbox" name="improved" value="Front-end Projects" class="marg">Entrepreneurship<br>
+    <input type="checkbox" name="improved" value="Front-end Projects" class="marg">Bridge Course<br>
+    <input type="checkbox" name="improved" value="Front-end Projects" class="marg">Additional Courses<br>
+    <label for="country" class="label">Write your reviews</label>               
+    <textarea placeholder="Enter your comment" style="width: 50%;padding: 12px 20px; margin: 8px 0;display: inline-block;
+      border: 2px solid rgb(20, 20, 20);border-radius: 4px;box-sizing: border-box;"></textarea>
+    
+    <input type="submit" value="SUBMIT">
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+
+input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 432px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  margin: 4px 0 0 309px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #000000;
+}
+
+.label{
+  display: inline-block;
+  width: 305px;
+  text-align: right;
+}
+#header1{
+color:black;
+text-align: center;
+}
+
+#header2    {
+color:black;
+text-align: center;
+}
+
+
+.marg{
+ margin-left:314.4px;
+}

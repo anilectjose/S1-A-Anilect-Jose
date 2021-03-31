@@ -1,0 +1,105 @@
+<html>
+<style>
+#block_container {
+    display: flex;
+    justify-content: center;
+}
+.calendercontent{
+   margin-right:25px !important;
+}
+.calendar,tr ,td,th{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.tabselection tr td{
+  border: 0px ;
+}
+</style>
+<head>
+    <title>Calender</title>
+   
+</head>
+
+<body>
+    <div class="selection">
+        <table class="tabselection" cellspacing="10">
+            <tbody>
+                <tr class="selrow">
+                    <td class="selcol">Enter a Year <input id="year_get" type="number" placeholder="year"> </td>
+                </tr>
+                <tr class="selrow">
+                    <td  colspan="2" class="selcol"><input onclick="generate()" type="button" id="subtn" value="Generate Calender"> </td>
+                </tr>
+                <tr class="selrow">
+                    <td  colspan="2" class="selcol"><input type="reset" value="reset" id="resetbtn" onclick="location.reload();"> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ <div id="block_container">
+<div id="content0" class="calendercontent"> </div>
+<div id="content1" class="calendercontent"> </div>
+<div id="content2" class="calendercontent"> </div>
+<div id="content3" class="calendercontent"> </div>
+ </div>
+ <div id="block_container">
+<div id="content4" class="calendercontent"> </div>
+<div id="content5" class="calendercontent"> </div>
+<div id="content6" class="calendercontent"> </div>
+
+<div id="content7" class="calendercontent"> </div>
+</div>
+  <div id="block_container">
+<div id="content8" class="calendercontent"> </div>
+ 
+<div id="content9" class="calendercontent"> </div>
+<div id="content10" class="calendercontent"> </div>
+<div id="content11" class="calendercontent"> </div>
+ </div>
+
+
+</body>
+<script> 
+ function generate(){
+ var year = parseInt(document.getElementById("year_get").value);
+ 
+ var dateNow = new Date();
+ 
+ var month = 0;
+ var day = 1;
+ while(month<12){
+ var monthNames = ["January","February","March","April","May","June","July","August","September","October","November", "December"];
+ var init_content = "<table class='calendar'> <tr class='monthNow'><th colspan='7'>"
+ +monthNames[month]+" "+ year +"</th></tr>";
+ init_content +="<tr class='dayNames'>  <td>Sun</td>  <td>Mon</td> <td>Tue</td>"+
+ "<td>Wed</td> <td>Thu</td> <td>Fri</td> <td>Sat</td> </tr><tr>";
+ 
+     var date = new Date(year,month);
+        var day = date.getDay();
+       for (var i = 0; i < day; i++) {
+            init_content += "<td></td>";
+        }
+
+        while (date.getMonth() == month) {
+            init_content += "<td>" + date.getDate() + "</td>";
+            if (date.getDay() % 7 == 6) {
+                init_content += "</tr><tr>";
+            }
+            date.setDate(date.getDate() + 1);
+        }
+        while(date.getDay() % 7 != 6 && date.getDay() % 7 != 0){
+            init_content += "<td></td>";
+            date.setDate(date.getDate() + 1);
+        }
+        if(date.getDay() % 7 > 0){
+            init_content += "<td></td></tr>";
+        }
+        init_content += "</table><br><br>";
+var idname ="content"+month;
+document.getElementById(idname).innerHTML = init_content;
+ month++;
+ }
+}
+</script>
+
+</html>
